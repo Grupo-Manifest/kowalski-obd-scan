@@ -1,0 +1,59 @@
+<MainView>:
+	GridLayout:
+		cols: 1
+		height: self.minimum_height
+
+		canvas.before:
+			Color:
+				rgba: 1, 0.97, 0.06, 1
+
+			Rectangle:
+				pos: self.pos
+				size: self.size
+
+	
+		Label:
+			id: title_label
+			text: '[b]' + 'Your vehicle' + '[/b]'
+			markup: True
+			size_hint_y: None
+
+
+		BoxLayout:
+			id: navigation_div
+			orientation: 'horizontal'
+			size_hint_y: None
+
+			Button:
+				id: fuel_nav
+				text: 'Fuel'
+
+			Button:
+				id: engine_nav
+				text: 'Engine'
+
+			Button:
+				id: status_nav
+				text: 'Status'
+
+			Button:
+				id: diagnostics_nav
+				text: 'Diagnostics'
+
+
+		PageLayout:
+			Label:
+				id: fuel_page
+				text: 'Fuel page placeholder'
+
+			Label:
+				id: engine_page
+				text: 'Engine page placeholder'
+
+			Label:
+				id: status_page
+				text: 'Status page placeholder'
+
+			Label:
+				id: diagnostics_page
+				text: 'Diagnostics page placeholder'
