@@ -1,0 +1,13 @@
+<EngineView>:
+	BoxLayout:
+		orientation: 'vertical'
+
+		Label:
+			id: engine_rpm_label
+			text: f'Engine RPM: {root.current_engine_rpm}'
+		Label:
+			id: engine_coolant_label
+			text: f'Engine coolant temperature: {root.current_engine_coolant}'
+		Label:
+			id: engine_load_label
+			text: f'Engine load: {root.current_engine_load}'

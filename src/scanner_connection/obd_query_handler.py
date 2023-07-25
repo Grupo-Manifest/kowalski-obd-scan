@@ -1,7 +1,7 @@
 import obd
 from obd import OBDStatus
 
-from obd_connection import OBDConnection
+from .obd_connection import OBDConnection
 
 class OBDQueryHandler():
     """Handles the queries to the OBD scanner and parses its responses"""
@@ -9,7 +9,7 @@ class OBDQueryHandler():
     
     def __init__(self):
         """Instantiates the OBD connection handler"""
-        self._connection = OBDConnection()
+        self._connection = OBDConnection().connection
 
 
     def get_engine_rpm(self):
@@ -84,15 +84,6 @@ class OBDQueryHandler():
         return response
 
 
-    def _is_connected(self) -> bool:
-        """
-        Checks whether the scanner has been successfully connected.
-        Returns:
-            bool: True if connected, False otherwise.
-        """
-        return self._connection.status() == OBDStatus.CAR_CONNECTED
-
-
     def _query_obd_property(self, command):
         """
         Helper method to query an OBD property and return the response value if successful.
@@ -102,7 +93,7 @@ class OBDQueryHandler():
         Returns:
             Any: Response value if successful, otherwise None.
         """
-        if self._is_connected():
+        if self._connection.is_connected():
             response = self._connection.query(command)
 
             if response.is_successful():

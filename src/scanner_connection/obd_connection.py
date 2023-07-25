@@ -9,7 +9,7 @@ class OBDConnection(metaclass=Singleton):
         """Initialize the OBD connection"""
         self.connection = obd.OBD()
 
-        atexit.register(self.close_connection())
+        atexit.register(self.close_connection)
 
 
     def close_connection(self):
