@@ -1,3 +1,10 @@
 <FuelView>:
-	Label:
-		text: 'Fuel page placeholder'
+	BoxLayout:
+		orientation: 'vertical'
+
+		Label:
+			id: fuel_level_label
+			text: f'Current fuel level: {root.current_fuel_level}'
+		Label:
+			id: fuel_pressure_label
+			text: f'Current fuel pressure: {root.current_fuel_pressure}'
