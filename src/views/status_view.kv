@@ -1,3 +1,7 @@
 <StatusView>:
-	Label:
-		text: 'Status page placeholder'
+	BoxLayout:
+		orientation: 'vertical'
+
+		Label:
+			id: vehicle_speed_label
+			text: f'Vehicle speed: {root.current_speed}'
