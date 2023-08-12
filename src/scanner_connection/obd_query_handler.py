@@ -35,6 +35,18 @@ class OBDQueryHandler():
 
         return response
 
+    
+    def get_accelerator_position(self) -> float:
+        """
+        Retrieves the relative accelerator pedal position from the scanner.
+        Returns:
+            float: Relative accelerator pedal position percentage, or None if the query is unsuccessful.
+        """
+        command = obd.commands.RELATIVE_ACCEL_POS
+        response = self._query_obd_property(command)
+
+        return response
+
 
     def get_coolant_temperature(self):
         """
