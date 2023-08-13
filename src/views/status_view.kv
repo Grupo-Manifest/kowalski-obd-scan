@@ -1,3 +1,13 @@
 <StatusView>:
-	Label:
-		text: 'Status page placeholder'
+	BoxLayout:
+		orientation: 'vertical'
+
+		Label:
+			id: engine_runtime_label
+			text: f'Current run time: {root.engine_runtime} s'
+		Label:
+			id: vehicle_speed_label
+			text: f'Vehicle speed: {root.current_speed}'
+		Label:
+			id: accelerator_position_label
+			text: f'Relative accelerator position: {root.accelerator_position}'
