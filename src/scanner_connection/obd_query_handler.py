@@ -10,6 +10,7 @@ class OBDQueryHandler():
     def __init__(self):
         """Instantiates the OBD connection handler"""
         self._connection = OBDConnection().connection
+        a: obd.Unit.second
 
 
     def get_engine_rpm(self):
@@ -91,6 +92,18 @@ class OBDQueryHandler():
             float: Current vehicle engine load percentage, or None if the query is unsuccessful.
         """
         command = obd.commands.ENGINE_LOAD
+        response = self._query_obd_property(command)
+
+        return response
+
+
+    def get_run_time(self):
+        """
+        Retrieves the vehicle run time in seconds since the engine was last started.
+        Returns:
+            int: Current run time since the engine was last started, or None if the query is unsuccessful.
+        """
+        command = obd.commands.RUN_TIME
         response = self._query_obd_property(command)
 
         return response
